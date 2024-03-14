@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
-import { AuthController } from './auth/auth.controller';
-import { AuthService } from './auth/auth.service';
-import { AuthModule } from './auth/auth.module';
+import { Module } from '@nestjs/common'; 
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthController } from './Features/Auth/Controllers/auth.controller';
+import { AuthModule } from './Features/Auth/auth.module';
+import { UserEntity } from './Features/Auth/Entities/user_entity';
 
 
 @Module({
@@ -14,10 +14,11 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       username: "root",
       password: "",
       database: "fiulearning",
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      entities: [UserEntity],
       synchronize: true,
     }),
-    AuthModule],
+    AuthModule,
+     ],
   controllers: [],
   providers: [],
 })
