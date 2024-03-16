@@ -1,8 +1,11 @@
 import { Module } from '@nestjs/common'; 
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { AuthController } from './Features/Auth/Controllers/auth.controller';
+import { AuthController } from './Features/Auth/auth.controller';
 import { AuthModule } from './Features/Auth/auth.module';
 import { UserEntity } from './Features/Auth/Entities/user_entity';
+import { HomeModule } from './Features/Home/home.module';
+import { CategoryEntity } from './Features/Home/Entities/category_entity';
+import { CoursesModule } from './Features/Courses/courses.module';
 
 
 @Module({
@@ -14,10 +17,12 @@ import { UserEntity } from './Features/Auth/Entities/user_entity';
       username: "root",
       password: "",
       database: "fiulearning",
-      entities: [UserEntity],
+      entities: [UserEntity, CategoryEntity],
       synchronize: true,
     }),
     AuthModule,
+    HomeModule,
+    CoursesModule,
      ],
   controllers: [],
   providers: [],

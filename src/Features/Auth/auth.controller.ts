@@ -1,7 +1,7 @@
 import { Body, Controller, HttpException, HttpStatus, Injectable, Post } from '@nestjs/common';
-import { LoginDto } from '../Entities/dto/login.dto';
-import { AuthService } from '../Services/auth.service';
-import { RegisterDto } from '../Entities/dto/register.dto';
+import { LoginDto } from './dto/login.dto';
+import { AuthService } from './auth.service';
+import { RegisterDto } from './dto/register.dto';
 
 @Controller('auth')
 export class AuthController {
